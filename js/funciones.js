@@ -46,13 +46,9 @@ let nombreUsuario, // Variable que contendrá el nombre de usuario
 					break;
 				default: // Si el nombre de la marca es válida
 					ArrayCochesUsuarios.push (marca); // Almacenamos la marca en Array global
-					if (ArrayCochesUsuarios.length <= 2) { // Repetimos el proceso hasta tener 3 marcas en Array
-						return this.solicitarCoches ();
-					};
-				// Mostramos en consola los resultados
-				return console.info (`${nombreUsuario} ha tenido coches de las marcas:\n· ${ArrayCochesUsuarios[0]}\n· ${ArrayCochesUsuarios[1]}\n· ${ArrayCochesUsuarios[2]}`)
+					return ArrayCochesUsuarios.length <= 2 ? this.solicitarCoches () : console.info (`${nombreUsuario} ha tenido coches de las marcas:\n· ${ArrayCochesUsuarios[0]}\n· ${ArrayCochesUsuarios[1]}\n· ${ArrayCochesUsuarios[2]}`); // Repetimos el proceso hasta tener 3 marcas en Array o mostramos los resultados.
 			};
-		};
+		}
 	};
 
 funciones.solicitarNombre(); // Ejecutamos la función principal al cargar el archivo
