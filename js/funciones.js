@@ -33,8 +33,17 @@ var nombreUsuario, // Variable que contendrá el nombre de usuario
 					break;
 				default: // Si el nombre de la marca es válida
 					ArrayCochesUsuarios.push (marca); // Almacenamos la marca en Array global
-					return ArrayCochesUsuarios.length <= 2 ? this.solicitarCoches () : console.info (`${nombreUsuario} ha tenido coches de las marcas:\n· ${ArrayCochesUsuarios[0]}\n· ${ArrayCochesUsuarios[1]}\n· ${ArrayCochesUsuarios[2]}`); // Repetimos el proceso hasta tener 3 marcas en Array o mostramos en consola los resultados.
+					ArrayCochesUsuarios.length <= 2 ? this.solicitarCoches () : console.info (`${nombreUsuario} ha tenido coches de las marcas:\n· ${ArrayCochesUsuarios[0]}\n· ${ArrayCochesUsuarios[1]}\n· ${ArrayCochesUsuarios[2]}`); // Repetimos el proceso hasta tener 3 marcas en Array o mostramos en consola los resultados.
+					this.insertarDatosEnTabla(); // Mostramos los resultados en una tabla en el navegador
 			};
+		},
+		insertarDatosEnTabla: function () { // Función que inserta los datos obtenidos en una tabla a mostrar en el navegador
+			let idElementoNombreUsuario = 'nombreUsuario'; // ID del elemento donde se insertará el nombre del usuario
+
+			document.getElementById(idElementoNombreUsuario).innerHTML = `${nombreUsuario} ha tenido los siguientes coches`; // Inserta el nombre del usuario
+			for (let marca = 0; marca < ArrayCochesUsuarios.length; marca++) { // Insertar las marcas de coches de las diferentes filas de la tabla
+				document.getElementById(ordinales[marca]).innerHTML = ArrayCochesUsuarios[marca];
+			}
 		}
 	};
 
