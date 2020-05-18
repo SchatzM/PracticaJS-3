@@ -4,7 +4,7 @@
 // Marcas de Coches del usuario
 // Brian Passos
 
-let nombreUsuario, // Variable con contendrá el nombre de usuario
+let nombreUsuario, // Variable que contendrá el nombre de usuario
 	ordinales = ['primer', 'segundo', 'tercer'], // Referencia a el orden de las marcas de coche que solicitaremos
 	ArrayCochesUsuarios = [], // Array que almacenará las marcas de coche
 	funciones = {
