@@ -13,11 +13,11 @@ let nombreUsuario, // Variable con contendrá el nombre de usuario
 
 			switch (usuarioIntroducido) { // Procesamos el nombre introducido
 				case 'null':
-				case '':	// Si el nombre proporcionado no es válido
+				case '': // Si el nombre proporcionado no es válido
 					console.warn ('Por favor introduce tu nombre de usuario.'); // Advertencia de la ausencia de nombre en consola
 					switch (confirm('Es necesario tu nombre de usuario.')) { // Advertimos de la ausencia de nombre en cuadro de diálogo
-						case true: // El usuario acepta en el cuadro de diálogo
-							funciones.solicitarNombre (); // Solicitamos una vez más el nombre
+						case true: // Si el usuario acepta en el cuadro de diálogo
+							this.solicitarNombre (); // Solicitamos una vez más el nombre
 							break;
 						default: // Si el usuario cancela la ventana de diálogo
 							console.error ('Cancelado por el usuario.');
@@ -30,30 +30,24 @@ let nombreUsuario, // Variable con contendrá el nombre de usuario
 			};
 		},
 		solicitarCoches : function () { // Solicitamos la marca de los coches
-			let marca = String (prompt (`Por favor ${nombreUsuario}, introduce marca del ${ordinales[ArrayCochesUsuarios.length]} coche:`)).trim();
+			let marca = String (prompt (`Por favor ${nombreUsuario}, introduce marca del ${ordinales[ArrayCochesUsuarios.length]} coche:`)).trim(); // Solicitamos el nombre las marcas, una por una. Deben contener al menos un carácter y no ser sólo espacio(s)
 
-			switch (marca) {
+			switch (marca) { // Procesamos la marca introducida
 				case 'null':
-					console.warn (`Por favor introduce la marca del ${ordinales[ArrayCochesUsuarios.length]} coche.`);
-					switch (confirm(`Por favor introduce la marca del ${ordinales[ArrayCochesUsuarios.length]} coche:`)) {
-						case true:
-							this.solicitarCoches ();
+				case '': // Si la marca no es válida
+					console.warn (`Por favor introduce la marca del ${ordinales[ArrayCochesUsuarios.length]} coche.`); // Advertimos en consola de la falta de una marca válida
+					switch (confirm(`Es necesaria la marca del ${ordinales[ArrayCochesUsuarios.length]} coche.`)) { // Advertimos en cuadro de diálogo de la falta de una marca válida
+						case true: // Si el usuario acepta en el cuadro de diálogo
+							this.solicitarCoches (); // Solicitamos una vez más la marca
 							break;
-						default:
+						default: // Si el usuario cancela en el cuadro de diálogo
 							return console.error ('Cancelado por el usuario.');
 					}
 					break;
 				default:
-					switch (marca) {
-						case '': // Si la marca introducida no es válida
-							this.solicitarCoches ();
-							break;
-						default: // Si la marca es válida, procedemos:
-							ArrayCochesUsuarios.push (marca); // Almacenamos la marca en Array global
-							if (ArrayCochesUsuarios.length <= 2) { // Repetimos el proceso hasta tener 3 marcas en Array
-								return this.solicitarCoches ();
-							}
-							break;
+					ArrayCochesUsuarios.push (marca); // Almacenamos la marca en Array global
+					if (ArrayCochesUsuarios.length <= 2) { // Repetimos el proceso hasta tener 3 marcas en Array
+						return this.solicitarCoches ();
 					}
 				// Mostramos en consola los resultados
 				return console.info (`${nombreUsuario} ha tenido coches de las marcas:\n· ${ArrayCochesUsuarios[0]}\n· ${ArrayCochesUsuarios[1]}\n· ${ArrayCochesUsuarios[2]}`)
