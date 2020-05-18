@@ -4,18 +4,18 @@
 // Marcas de Coches del usuario
 // Brian Passos
 
-let nombreUsuario, // Variable que contendrá el nombre de usuario
+var nombreUsuario, // Variable que contendrá el nombre de usuario
 	ordinales = ['primer', 'segundo', 'tercer'], // Referencia a el orden de las marcas de coche que solicitaremos
 	ArrayCochesUsuarios = [], // Array que almacenará las marcas de coche
 	funciones = {
 		solicitarNombre: function () { // Función principal
-			let usuarioIntroducido = String (prompt ('Por favor introduce tu nombre:','Usuario')).trim(); // Solicitamos el nombre del usuario, el cual debe contener al menos un carácter y no ser sólo espacio(s).
+			let usuarioIntroducido = String (prompt ('Por favor introduce tu nombre:','Usuario')).trim (); // Solicitamos el nombre del usuario, el cual debe contener al menos un carácter y no ser sólo espacio(s).
 
 			switch (usuarioIntroducido) { // Procesamos el nombre introducido
 				case 'null':
 				case '': // Si el nombre proporcionado no es válido
 					console.warn ('Por favor introduce tu nombre de usuario.'); // Advertencia de la ausencia de nombre en consola
-					switch (confirm('Es necesario tu nombre de usuario.')) { // Advertimos de la ausencia de nombre en cuadro de diálogo
+					switch (confirm ('Es necesario tu nombre de usuario.')) { // Advertimos de la ausencia de nombre en cuadro de diálogo
 						case true: // Si el usuario acepta en el cuadro de diálogo
 							this.solicitarNombre (); // Solicitamos una vez más el nombre
 							break;
@@ -30,13 +30,13 @@ let nombreUsuario, // Variable que contendrá el nombre de usuario
 			};
 		},
 		solicitarCoches : function () { // Solicitamos la marca de los coches
-			let marca = String (prompt (`Por favor ${nombreUsuario}, introduce marca del ${ordinales[ArrayCochesUsuarios.length]} coche:`)).trim(); // Solicitamos el nombre las marcas, una por una. Deben contener al menos un carácter y no ser sólo espacio(s)
+			let marca = String (prompt (`Por favor ${nombreUsuario}, introduce marca del ${ordinales[ArrayCochesUsuarios.length]} coche:`)).trim (); // Solicitamos el nombre las marcas, una por una. Deben contener al menos un carácter y no ser sólo espacio(s)
 
 			switch (marca) { // Procesamos la marca introducida
 				case 'null':
 				case '': // Si la marca no es válida
 					console.warn (`Por favor introduce la marca del ${ordinales[ArrayCochesUsuarios.length]} coche.`); // Advertimos en consola de la falta de una marca válida
-					switch (confirm(`Es necesaria la marca del ${ordinales[ArrayCochesUsuarios.length]} coche.`)) { // Advertimos en cuadro de diálogo de la falta de una marca válida
+					switch (confirm (`Es necesaria la marca del ${ordinales[ArrayCochesUsuarios.length]} coche.`)) { // Advertimos en cuadro de diálogo de la falta de una marca válida
 						case true: // Si el usuario acepta en el cuadro de diálogo
 							this.solicitarCoches (); // Solicitamos una vez más la marca
 							break;
