@@ -40,8 +40,8 @@ var nombreUsuario, // Variable que contendrá el nombre de usuario
 		insertarDatosEnTabla: function () { // Función que inserta los datos obtenidos en una tabla a mostrar en el navegador
 			let idElementoNombreUsuario = 'nombreUsuario'; // ID del elemento donde se insertará el nombre del usuario
 
-			document.getElementById(idElementoNombreUsuario).innerHTML = `${nombreUsuario} ha tenido los siguientes coches`; // Inserta el nombre del usuario
-			for (let marca = 0; marca < ArrayCochesUsuarios.length; marca++) { // Insertar las marcas de coches de las diferentes filas de la tabla
+			document.getElementById(idElementoNombreUsuario).innerHTML = `${nombreUsuario} ha tenido coches de las siguientes marcas:`; // Inserta el nombre del usuario
+			for (let marca = 0; marca < ArrayCochesUsuarios.length; marca++) { // Inserta las marcas de coches en las diferentes filas de la tabla
 				document.getElementById(ordinales[marca]).innerHTML = ArrayCochesUsuarios[marca];
 			}
 		}
